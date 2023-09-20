@@ -1,0 +1,121 @@
+<ng-container #appHighlighter="hl" [appHighlighted]="true">
+  <div class="emloyee-child-card" [ngClass]="{ it: getCategory() }">
+    <ng-content select=".img"></ng-content>
+    <div>
+      <mat-card-subtitle>
+        <span
+          >{{ employee.firstname | titlecase }}
+          {{ employee.category | titlecase }}</span
+        >
+      </mat-card-subtitle>
+      <mat-card-actions><
+        <mat-button
+        type="button"
+        (dblclick)="appHighlighter.toggle(false)"
+        class="btn btn-primary"
+        style="display: flex; align-items: flex-end"
+        (click)="edit()"
+      >
+        View Details
+      </mat-button>
+      /mat-card-actions>
+    </div>
+  </div>
+
+  <!-- <div class="course-card">
+    <img
+      src="../../assets/Images/{{ employee.profile }}"
+      alt="Profile Image"
+      class="profile"
+      style="
+        width: 25rem;
+        height: 21rem;
+        image-resolution: 70%;
+        opacity: 0.8;
+        box-shadow: 50%;
+        border-radius: 70%;
+      "
+    />
+
+    <div class="col">
+      <div class="row g-0">
+        <span class="name"
+          >{{ employee.firstname | titlecase }}
+          {{ employee.lastname | titlecase }}</span
+        >
+      </div>
+
+      <div class="row g-0 mt-4">
+        <div class="col-md">
+          <table class="table table-hover mx-auto">
+            <thead class="text-center fs-5 fst-italic text-secondary">
+              <colgroup>
+                <col style="width: 4px; background-color: green" />
+                <col style="width: 6px" />
+                <col style="width: 4px" />
+              </colgroup>
+              <tr>
+                <td colspan="3" style="font-size: medium">
+                  Personal Details:-
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Birthdate</td>
+                <td colspan="2" style="font-size: small; font-weight: light">
+                  {{ dateformat }}
+                </td>
+              </tr>
+              <tr>
+                <td>Gender</td>
+                <td>{{ employee.gender == "m" ? "Male" : "Female" }}</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="col">
+          <table class="table table-hover mx-auto">
+            <thead class="text-center fs-5 fst-italic text-secondary">
+              <tr>
+                <td colspan="2" style="font-size: medium">Job Details:-</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Company</td>
+                <td>{{ employee.company | titlecase }}</td>
+              </tr>
+              <tr>
+                <td>Experience</td>
+                <td>{{ employee.jobExperience }} yrs</td>
+              </tr>
+              <tr>
+                <td>Salary</td>
+                <td>{{ employee.salary | currency : "INR" }} LPA</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-md-12" style="align-content: flex-end">
+        <div
+          class="btn-group"
+          role="group"
+          style="align-content: flex-end; display: flex"
+        >
+          <button
+            type="button"
+            class="btn btn-outline-success"
+            (click)="edit()"
+          >
+            Edit
+          </button>
+          <button type="button" class="btn btn-outline-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</ng-container>

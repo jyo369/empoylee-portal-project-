@@ -1,0 +1,34 @@
+<div class="employee-card" *ngIf="(e1$ | async)?.length != 0">
+  <app-employee-card
+    [appHighlighted]="false"
+    (toggleHighlight)="toggle($event)"
+    *ngFor="let e of e1$ | async; first as isfirst"
+    [employee]="e"
+    (employeeSelected)="selectedEmpDetails($event)"
+  >
+    <div class="img" #imgcontent [ngStyle]="{ paddingRight: '120px;' }">
+      <app-employee-image [profile]="e.profile"></app-employee-image>
+    </div>
+  </app-employee-card>
+</div>
+<div class="row mt-5" *ngIf="(e1$ | async)?.length == 0">
+  <div class="col text-center">
+    <h2
+      class="text-secondary fs-2 fw-bold fst-italic"
+      style="padding-left: 700px; padding-top: 100px"
+    >
+      There are No Employees Added!
+    </h2>
+  </div>
+</div>
+
+<!-- <div class="div">
+  <div class="courses">
+    <app-employee-card
+      *ngFor="let e of e1; first as isfirst"
+      [class.is-first]="isfirst"
+      [employee]="e"
+      (employeeSelected)="selectedEmpDetails($event)"
+    ></app-employee-card>
+  </div>
+</div> -->
